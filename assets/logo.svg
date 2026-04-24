@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <!-- Full circle text path, clockwise from 12 o'clock -->
+    <path id="tp" d="M 150,18 A 132,132 0 1 1 149.999,18"/>
+  </defs>
+
+  <!-- Outer border -->
+  <circle cx="150" cy="150" r="147" fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <circle cx="150" cy="150" r="134" fill="none" stroke="currentColor" stroke-width="0.8"/>
+
+  <!-- Circular text (starts at ~62% ≈ 7 o'clock, matches original) -->
+  <text font-family="Georgia, 'Times New Roman', serif"
+        font-size="13.2" letter-spacing="5.8" fill="currentColor">
+    <textPath href="#tp" startOffset="62%">
+      INSTITUTO PRYLOM DE PESQUISAS HISTÓRICO-CIENTÍFICAS ·
+    </textPath>
+  </text>
+
+  <!-- ── Tree illustration ── -->
+  <!-- Open book -->
+  <path d="M 94,227 Q 150,214 206,227 L 206,238 Q 150,225 94,238 Z"
+        fill="currentColor"/>
+  <line x1="150" y1="214" x2="150" y2="238"
+        stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 94,225 Q 150,212 206,225"
+        stroke="currentColor" stroke-width="1.2" fill="none"/>
+
+  <!-- Trunk -->
+  <rect x="147" y="178" width="6" height="38" rx="3" fill="currentColor"/>
+
+  <!-- Main crown center -->
+  <ellipse cx="150" cy="148" rx="40" ry="38" fill="currentColor"/>
+
+  <!-- Left branch cluster -->
+  <ellipse cx="114" cy="163" rx="28" ry="24" fill="currentColor"/>
+  <ellipse cx="100" cy="152" rx="20" ry="17" fill="currentColor"/>
+  <ellipse cx="118" cy="142" rx="22" ry="18" fill="currentColor"/>
+
+  <!-- Right branch cluster -->
+  <ellipse cx="186" cy="163" rx="28" ry="24" fill="currentColor"/>
+  <ellipse cx="200" cy="152" rx="20" ry="17" fill="currentColor"/>
+  <ellipse cx="182" cy="142" rx="22" ry="18" fill="currentColor"/>
+
+  <!-- Upper crown detail -->
+  <ellipse cx="134" cy="130" rx="22" ry="19" fill="currentColor"/>
+  <ellipse cx="166" cy="130" rx="22" ry="19" fill="currentColor"/>
+  <ellipse cx="150" cy="118" rx="24" ry="20" fill="currentColor"/>
+</svg>
