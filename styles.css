@@ -330,7 +330,7 @@ button { cursor: pointer; }
   flex-direction: column;
   align-items: center;
   gap: .625rem;
-  margin-top: 2.5rem;
+  margin-top: 4rem;
 }
 .hero-logo-img {
   width: clamp(220px, 32vw, 360px);
