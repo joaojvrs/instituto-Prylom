@@ -134,6 +134,7 @@ button { cursor: pointer; }
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  position: relative;
 }
 
 .nav-logo {
@@ -161,6 +162,9 @@ button { cursor: pointer; }
   display: flex;
   align-items: center;
   gap: .125rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .nav-links a {
   font-family: var(--ff-head);
@@ -272,22 +276,32 @@ button { cursor: pointer; }
   pointer-events: none;
 }
 
-/* Inner: chevrons column + content, always in flow */
+/* Inner: chevrons decorative (absolute) + content centered */
 .hero-inner {
+  position: relative;
   width: 100%;
   max-width: 1160px;
   margin-inline: auto;
   padding-inline: 2rem;
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 2.5rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
   padding-block: 4rem;
 }
 
-.hero-chevrons { display: flex; align-items: center; }
+.hero-chevrons {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
 
-.hero-content { min-width: 0; }
+.hero-content {
+  width: 100%;
+  text-align: center;
+}
 
 .hero-title {
   font-family: var(--ff-head);
@@ -308,6 +322,7 @@ button { cursor: pointer; }
   margin-top: .625rem;
   margin-bottom: 2.5rem;
   line-height: 1.25;
+  text-align: center;
 }
 
 .hero-logo-block {
@@ -315,9 +330,10 @@ button { cursor: pointer; }
   flex-direction: column;
   align-items: center;
   gap: .625rem;
+  margin-top: 2.5rem;
 }
 .hero-logo-img {
-  width: clamp(180px, 26vw, 280px);
+  width: clamp(220px, 32vw, 360px);
   height: auto;
 }
 .hero-url {
@@ -362,6 +378,166 @@ button { cursor: pointer; }
 }
 .deco-orb.teal { width: 108px; height: 108px; background: var(--teal); }
 .deco-orb.gold { width: 68px;  height: 68px;  background: var(--gold); }
+
+/* ══════════════════════════════════════════════════════
+   RAZÃO DE EXISTIR
+   ══════════════════════════════════════════════════════ */
+.razao { background: var(--white); }
+
+.razao-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.razao-card {
+  background: var(--off);
+  border-radius: var(--r-lg);
+  padding: 2.25rem 1.875rem;
+  border-top: 4px solid var(--teal);
+  box-shadow: var(--sh);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.razao-card:hover {
+  box-shadow: var(--sh-md);
+  transform: translateY(-4px);
+}
+.razao-card--impacto { grid-column: 1 / -1; }
+
+.razao-num {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: var(--ff-head);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--teal);
+  opacity: .06;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.razao-card h3 {
+  font-family: var(--ff-head);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1.35;
+  margin-bottom: .875rem;
+}
+.razao-card h3 span {
+  font-size: .88em;
+  font-weight: 600;
+  color: var(--gold);
+}
+.razao-card > p {
+  font-size: .93rem;
+  color: var(--gray-700);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.impacto-sub {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.impacto-item {
+  background: var(--white);
+  border-radius: var(--r);
+  padding: 1.125rem 1rem;
+  border-left: 4px solid var(--gold);
+}
+.impacto-item h4 {
+  font-family: var(--ff-head);
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: .5rem;
+  line-height: 1.3;
+}
+.impacto-item p {
+  font-size: .82rem;
+  color: var(--gray-700);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.razao-statement {
+  background: var(--teal);
+  color: var(--white);
+  border-radius: var(--r-lg);
+  padding: 2rem 2.5rem;
+  font-size: 1rem;
+  line-height: 1.85;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2.5rem;
+  border: none;
+}
+
+.mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+.mvv-card {
+  background: var(--off);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.875rem;
+  border-left: 6px solid var(--gold);
+  box-shadow: var(--sh);
+  position: relative;
+  overflow: hidden;
+}
+.mvv-num {
+  position: absolute;
+  top: .75rem;
+  right: 1.25rem;
+  font-family: var(--ff-head);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--gold);
+  opacity: .08;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.mvv-label {
+  font-family: var(--ff-head);
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: .875rem;
+}
+.mvv-card > p {
+  font-size: .92rem;
+  color: var(--gray-700);
+  line-height: 1.8;
+  font-style: italic;
+  text-align: justify;
+}
+.mvv-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: .625rem;
+}
+.mvv-card ul li {
+  font-family: var(--ff-head);
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--teal);
+  padding-left: .875rem;
+  border-left: 3px solid var(--gold);
+  line-height: 1.45;
+}
 
 /* ══════════════════════════════════════════════════════
    OBJETIVOS / METODOS
@@ -485,7 +661,12 @@ button { cursor: pointer; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  transform: scale(1.25);
   z-index: 1;
+}
+.profile-avatar.alt img {
+  transform: scale(1.6);
 }
 .profile-avatar .avatar-initials {
   position: absolute;
@@ -681,13 +862,25 @@ button { cursor: pointer; }
 
 .acervo-book {
   position: relative;
+  height: 100%;
 }
-.acervo-book > img { border-radius: var(--r); box-shadow: var(--sh-md); }
+.acervo-book > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: var(--r);
+  box-shadow: var(--sh-md);
+  display: block;
+  background: var(--gray-100);
+}
 
 .book-mock {
   position: absolute;
   inset: 0;
-  display: flex;
+  display: none;
   border-radius: var(--r);
   overflow: hidden;
   box-shadow: var(--sh-md);
@@ -774,6 +967,8 @@ button { cursor: pointer; }
    ══════════════════════════════════════════════════════ */
 .seguranca { background: var(--off); }
 
+.seguranca .section-lead { max-width: 920px; }
+
 .seg-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -814,6 +1009,7 @@ button { cursor: pointer; }
   color: var(--teal);
   line-height: 1.35;
   margin-bottom: 1rem;
+  text-align: center;
 }
 .seg-card p {
   font-size: .925rem;
@@ -910,12 +1106,11 @@ button { cursor: pointer; }
   gap: .5rem;
 }
 .footer-logo {
-  width: 70px;
+  width: 160px;
   height: auto;
   margin-inline: auto;
-  /* Force white colour on the SVG when used as <img> via filter */
-  filter: brightness(0) invert(1);
-  margin-bottom: .5rem;
+  margin-bottom: .75rem;
+  mix-blend-mode: multiply;
 }
 .footer-title {
   font-family: var(--ff-head);
@@ -952,6 +1147,8 @@ button { cursor: pointer; }
   /* Grids: 3 → 2 columns */
   .metodos-grid { grid-template-columns: repeat(2, 1fr); }
   .seg-grid     { grid-template-columns: repeat(2, 1fr); }
+  .mvv-grid     { grid-template-columns: repeat(2, 1fr); }
+  .impacto-sub  { grid-template-columns: 1fr; }
 
   /* Team: 4 → 2 columns */
   .team-row    { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
@@ -1006,6 +1203,7 @@ button { cursor: pointer; }
     position: absolute;
     top: var(--nav-h);
     left: 0; right: 0;
+    transform: none;
     flex-direction: column;
     align-items: stretch;
     background: var(--white);
@@ -1030,6 +1228,11 @@ button { cursor: pointer; }
   .hero-subtitle { font-size: .88rem; letter-spacing: .04em; margin-bottom: 1.75rem; }
   .hero-blob     { display: none; }
   .hero-logo-img { width: clamp(88px, 22vw, 130px); }
+
+  /* ── Razão de Existir ── */
+  .razao-grid  { grid-template-columns: 1fr; }
+  .impacto-sub { grid-template-columns: 1fr; }
+  .mvv-grid    { grid-template-columns: 1fr; }
 
   /* ── Metodos ── */
   .metodos-grid { grid-template-columns: 1fr; }
