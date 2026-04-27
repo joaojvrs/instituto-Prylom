@@ -1458,6 +1458,7 @@ button { cursor: pointer; }
   .profile-avatar-wrap        { width: 120px; margin-inline: auto; }
   .profile-avatar             { width: 120px; height: 120px; min-height: 0; }
   .profile-avatar .avatar-initials { font-size: 2rem; }
+  .profile-avatar.alt img     { transform: scale(1.1); object-position: center center; }
 
   /* ── Equipe — 1 column, mesma estrutura vertical do desktop ── */
   .team-row    { grid-template-columns: 1fr; gap: 1.25rem; align-items: stretch; }
@@ -1509,6 +1510,7 @@ button { cursor: pointer; }
   .profile-avatar-wrap { width: 100px; height: auto; }
   .profile-avatar      { width: 100px; height: 100px; }
   .profile-avatar .avatar-initials { font-size: 1.75rem; }
+  .profile-avatar.alt img { transform: scale(1.1); object-position: center center; }
 
   /* ── Equipe: mesma estrutura vertical do desktop ── */
   .team-circle { width: 88px; height: 88px; }
