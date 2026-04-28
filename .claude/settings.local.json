@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(identify assets/galeria*.jpeg)",
+      "Bash(file assets/galeria*.jpeg)"
+    ]
+  }
+}

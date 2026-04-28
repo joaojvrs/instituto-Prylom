@@ -74,6 +74,34 @@ const revealObs = new IntersectionObserver(
 
 document.querySelectorAll('[data-animate]').forEach(el => revealObs.observe(el));
 
+/* ── GALERIA LIGHTBOX ── */
+const lightbox      = document.getElementById('lightbox');
+const lightboxImg   = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+if (lightbox) {
+  document.querySelectorAll('.galeria-cell').forEach(cell => {
+    cell.addEventListener('click', () => {
+      const img = cell.querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  lightboxClose.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
+}
+
 /* ── SMOOTH SCROLL OFFSET (accounts for fixed navbar) ── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
