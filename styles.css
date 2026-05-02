@@ -829,6 +829,46 @@ button { cursor: pointer; }
 .teal-bg .profile-text p { color: rgba(255,255,255,.88); }
 .light-bg .profile-text p { color: var(--gray-700); }
 
+/* ── Fotos de expedição no módulo da Carla ── */
+.profile-photos {
+  clear: both;
+  margin-top: 3rem;
+}
+
+.profile-photos-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.profile-photos-label::before,
+.profile-photos-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(181, 160, 32, 0.35);
+}
+.profile-photos-label span {
+  font-family: var(--ff-head);
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  white-space: nowrap;
+}
+
+.profile-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.profile-photos-grid .galeria-cell {
+  aspect-ratio: 3 / 4;
+}
+
 /* ══════════════════════════════════════════════════════
    EQUIPE — Circular team cards
    ══════════════════════════════════════════════════════ */
@@ -1833,6 +1873,7 @@ button { cursor: pointer; }
 
   /* ── Galeria ── */
   .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+  .profile-photos-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* ── Acervo ── */
   .acervo-layout { grid-template-columns: 1fr; gap: 2rem; }
@@ -1895,6 +1936,7 @@ button { cursor: pointer; }
 
   /* ── Galeria ── */
   .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+  .profile-photos-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* ── Acervo ── */
   .acervo-book { min-height: 240px; }
