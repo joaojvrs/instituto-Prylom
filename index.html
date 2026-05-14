@@ -434,6 +434,8 @@
       <div class="acervo-layout" data-animate="fade-up">
         <div class="acervo-book">
           <img src="assets/acervo.jpeg" alt="Do Fabuloso Araçoiaba ao Brasil Industrial"
+               class="acervo-pdf-trigger" tabindex="0" role="button" aria-label="Abrir PDF Redescobrindo Yby-Sorocs"
+               data-pdf-src="assets/Redescobrindo Yby-Sorocs _ memorando histórico _ jBarcellos_.pdf"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="book-mock">
             <div class="book-spine"></div>
@@ -470,7 +472,14 @@
         <p class="section-sup" style="color:rgba(255,255,255,.5)">Registros de Expedição</p>
       </header>
 
-      <!-- fotos em breve -->
+      <div class="galeria-grid" data-animate="fade-up">
+        <button class="galeria-cell" aria-label="Ampliar Documento Criação do Instituto">
+          <img src="assets/registrocriacao.png" alt="Documento Criação do Instituto" loading="lazy" />
+          <div class="galeria-overlay">
+            <span class="galeria-overlay-label">Documento Criação do Instituto</span>
+          </div>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -826,6 +835,7 @@ parceria2: {
           onerror="this.src='assets/logo.svg'; this.onerror=null;"
         />
         <h2 class="footer-title">INSTITUTO PRYLOM</h2>
+        <p class="footer-address">Av. Brig. Faria Lima, 1461 - 4º andar - Pinheiros, São Paulo - SP, 01452-002</p>
         <p class="footer-subtitle">DE PESQUISAS HISTÓRICO-CIENTÍFICAS</p>
       </div>
       <div class="footer-blob" aria-hidden="true"></div>
@@ -836,6 +846,14 @@ parceria2: {
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizar foto">
     <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&#215;</button>
     <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+  </div>
+
+  <div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="Visualizar PDF">
+    <button class="pdf-modal-close" id="pdfModalClose" aria-label="Fechar">&#215;</button>
+    <div class="pdf-modal-content">
+      <iframe class="pdf-modal-frame" id="pdfModalFrame" title="Redescobrindo Yby-Sorocs"></iframe>
+      <a class="pdf-modal-fallback" id="pdfModalFallback" href="#" target="_blank" rel="noopener">Abrir PDF em nova aba</a>
+    </div>
   </div>
 
   <script src="script.js"></script>

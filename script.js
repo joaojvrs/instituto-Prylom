@@ -103,6 +103,46 @@ if (lightbox) {
 }
 
 /* ── SMOOTH SCROLL OFFSET (accounts for fixed navbar) ── */
+/* PDF modal */
+const pdfModal = document.getElementById('pdfModal');
+const pdfModalFrame = document.getElementById('pdfModalFrame');
+const pdfModalClose = document.getElementById('pdfModalClose');
+const pdfModalFallback = document.getElementById('pdfModalFallback');
+
+if (pdfModal) {
+  const openPdfModal = trigger => {
+    const pdfSrc = trigger.getAttribute('data-pdf-src');
+    if (!pdfSrc) return;
+
+    pdfModalFrame.src = pdfSrc;
+    pdfModalFallback.href = pdfSrc;
+    pdfModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePdfModal = () => {
+    pdfModal.classList.remove('open');
+    pdfModalFrame.src = '';
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('.acervo-pdf-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => openPdfModal(trigger));
+    trigger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openPdfModal(trigger);
+      }
+    });
+  });
+
+  pdfModal.addEventListener('click', e => { if (e.target === pdfModal) closePdfModal(); });
+  pdfModalClose.addEventListener('click', closePdfModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && pdfModal.classList.contains('open')) closePdfModal();
+  });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     const target = document.querySelector(anchor.getAttribute('href'));
