@@ -103,35 +103,30 @@ if (lightbox) {
 }
 
 /* ── SMOOTH SCROLL OFFSET (accounts for fixed navbar) ── */
-/* PDF modal */
+/* Popup editorial */
 const pdfModal = document.getElementById('pdfModal');
-const pdfModalFrame = document.getElementById('pdfModalFrame');
 const pdfModalClose = document.getElementById('pdfModalClose');
-const pdfModalFallback = document.getElementById('pdfModalFallback');
+const pdfModalContent = pdfModal ? pdfModal.querySelector('.pdf-modal-content') : null;
 
 if (pdfModal) {
-  const openPdfModal = trigger => {
-    const pdfSrc = trigger.getAttribute('data-pdf-src');
-    if (!pdfSrc) return;
-
-    pdfModalFrame.src = pdfSrc;
-    pdfModalFallback.href = pdfSrc;
+  const openPdfModal = () => {
     pdfModal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    if (pdfModalContent) pdfModalContent.scrollTop = 0;
+    if (pdfModalClose) pdfModalClose.focus();
   };
 
   const closePdfModal = () => {
     pdfModal.classList.remove('open');
-    pdfModalFrame.src = '';
     document.body.style.overflow = '';
   };
 
   document.querySelectorAll('.acervo-pdf-trigger').forEach(trigger => {
-    trigger.addEventListener('click', () => openPdfModal(trigger));
+    trigger.addEventListener('click', openPdfModal);
     trigger.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openPdfModal(trigger);
+        openPdfModal();
       }
     });
   });
