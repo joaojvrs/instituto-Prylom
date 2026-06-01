@@ -81,8 +81,6 @@ const lightboxClose = document.getElementById('lightboxClose');
 
 if (lightbox) {
   document.querySelectorAll('.galeria-cell').forEach(cell => {
-    if (cell.classList.contains('acervo-pdf-trigger')) return;
-
     cell.addEventListener('click', () => {
       const img = cell.querySelector('img');
       lightboxImg.src = img.src;
